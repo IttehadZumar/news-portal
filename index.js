@@ -28,6 +28,7 @@ const newsByCategorie = (id) => {
     fetch(url)
     .then(res => res.json())
     .then(data => displayNews(data.data))
+    .catch(error => console.log(error))
 }
 
 const displayNews = (allNews) => {
@@ -48,7 +49,7 @@ const displayNews = (allNews) => {
                 <div class="col-md-8">
                     <div class="card-body">
                         <h5 class="card-title">${news.title}</h5>
-                        <p style="text-overflow: ellipsis;" class="card-text">${news.details}</p>
+                        <p style="text-overflow: ellipsis;" class="card-text">${news.details.length>30 ? news.details.slice(0,20) + '...' : news.details}</p>
                         <p class="card-text"><small class="text-muted">
                         <img src="${news.author.img}" class="img-fluid rounded-start" alt="...">
                         ${news.author.name}
