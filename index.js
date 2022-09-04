@@ -36,17 +36,20 @@ const newsByCategorie = (id) => {
 }
 
 const displayNews = (allNews) => {
-  const arrlen= allNews.length;
-  if(arrlen==0){
+  const arrlen = allNews.length;
+  if (arrlen == 0) {
     document.getElementById('total-news-displayed').innerText = "No news found";
     spinner.classList.add("d-none");
   }
-  else
-  {
+  else {
     document.getElementById('total-news-displayed').innerText = `${arrlen} news found `;
   }
   const newsContainer = document.getElementById('news-container');
   newsContainer.textContent = " ";
+
+  // sort array by total view
+  let x = allNews.sort((a, b) => (b.total_view > a.total_view ? 1 : -1));
+
 
   allNews.forEach(news => {
     const div = document.createElement('div');
@@ -67,10 +70,11 @@ const displayNews = (allNews) => {
         ${news.author.name}
         </small>
         </p>
-        <p class="me-3 text-muted">view:${news.total_view}</p>
+        <p class="me-3 text-muted">view: <i class="fa-regular fa-eye"></i> ${news.total_view}</p>
+
         <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-Details
+Details <i class="fa-solid fa-arrow-right"></i>
 </button>
 
 <!-- Modal -->
