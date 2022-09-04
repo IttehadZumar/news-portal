@@ -42,9 +42,24 @@
     <div id="spinner" class="spinner-border text-danger d-none" role="status">
         <!-- <span class="visually-hidden">Loading...</span> -->
     </div>
+    <div class="container bg-secondary bg-opacity-25 p-2 mb-3">
+        <h5 id="total-news-displayed">
+        
+        </h5>
+    </div>
+    <div class="dropdown container p-2 mb-3">
+        <p class="d-inline">Sort By View:</p>
+        <button class="btn btn-secondary dropdown-toggle d-inline" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            View
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">ascending</a></li>
+          <li><a class="dropdown-item" href="#">descending</a></li>
+        </ul>
+      </div>
 
-    <main>
-        <div id="news-container" class="card mb-3" style="max-width: 540px;">
+    <main class="d-flex justify-content-center">
+        <div id="news-container" class="card mb-3 " style="max-width: 570px;">
 
         </div>
     </main>
